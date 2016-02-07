@@ -3,6 +3,8 @@ library(magrittr)
 library(dplyr)
 library(tigris)
 
+# This dataset is not included in the repository; please download 
+# from http://osd.texas.gov/Data/TPEPP/Projections/
 df <- read_csv('2014allcntyindage/2014allcntyindage.csv') %>%
   filter(age_in_yrs_num != -1, migration_scenario_num == 0.5)
 
