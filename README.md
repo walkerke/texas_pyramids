@@ -1,6 +1,6 @@
 # texas_pyramids
 Shiny application to explore Texas county demographics
-https://walkerke.shinyapps.io/texas_pyramids/
+http://urbanstudies.tcu.edu/research/open-data/tx-demographics/
 
 This repository stores the source code for the Shiny application "Demographics of Texas Counties, 2010-2050," produced by the [TCU Center for Urban Studies](http://urbanstudies.tcu.edu/).  The application displays population pyramids for all 254 counties in Texas by race and ethnicity, as well as projected future pyramids under a scenario of 50 percent of the 2000-2010 net migration rate.  Data for the application come from the [2014 Texas Population Projections Program](http://osd.texas.gov/Data/TPEPP/Projections/), Office of the Texas State Demographer.  
 
