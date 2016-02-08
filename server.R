@@ -9,35 +9,19 @@ function(input, output, session) {
   
   county_frame <- reactive({
     
+    d <- filter(df, county_name == input$county)
+    
     if (input$radio == 1) {
-      
-      d <- filter(df, county_name == input$county)
-      
       return(format_data(d))
-      
     } else if (input$radio == 2) {
-      
-      d <- filter(df, county_name == input$county)
-      
       return(format_white(d))
-      
     } else if (input$radio == 3) {
-      
-      d <- filter(df, county_name == input$county)
-      
       return(format_black(d))
-      
     } else if (input$radio == 4) {
-      
-      d <- filter(df, county_name == input$county)
-      
       return(format_hispanic(d))
-      
     }
     
   })
-  
-  
   
   selected_county <- reactive({
     
@@ -50,21 +34,27 @@ function(input, output, session) {
   plot_colors <- reactive({
     
     if (input$radio == 1) {
-      
       return(c('red', 'navy'))
-      
     } else if (input$radio == 2) {
-      
       return(c('#aec7e8', '#1f77b4'))
-      
     } else if (input$radio == 3) {
-      
       return(c('#ffbb78', '#ff7f0e'))
-      
     } else if (input$radio == 4) {
-      
       return(c('#98df8a', '#2ca02c'))
-      
+    }
+    
+  })
+  
+  plot_title <- reactive({
+    
+    if (input$radio == 1) {
+      return(input$county)
+    } else if (input$radio == 2) {
+      return(paste0(input$county, ' (non-Hispanic white)'))
+    } else if (input$radio == 3) {
+      return(paste0(input$county, ' (non-Hispanic black)'))
+    } else if (input$radio == 4) {
+      return(paste0(input$county, ' (Hispanic)'))
     }
     
   })
@@ -80,7 +70,7 @@ function(input, output, session) {
     
     plot_ly(year_data, x = population, y = age_groups, color = gender, type = 'bar', orientation = 'h', 
             hoverinfo = 'y+text+name', text = abs_pop, colors = plot_colors()) %>%
-      layout(title = paste0(input$county, ', ', input$year), 
+      layout(title = paste0(plot_title(), ', ', input$year), 
              bargap = 0.3, barmode = 'overlay', 
              xaxis = list(tickmode = 'array', tickvals = vals, ticktext = ticks(vals), 
                           title = "Population", 
