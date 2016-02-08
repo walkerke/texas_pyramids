@@ -86,8 +86,8 @@ function(input, output, session) {
                           title = "Population", 
                           range = c(min(d$population) + min(d$population) / 6, 
                                     max(d$population) + max(d$population) / 6)), 
-             yaxis = list(title = ""), 
-             autosize = FALSE, width = 800, height = 600)
+             yaxis = list(title = "")) 
+             # autosize = FALSE, width = 800, height = 600)
     
   })
   

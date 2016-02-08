@@ -29,18 +29,18 @@ navbarPage('Demographics of Texas Counties, 2010-2050', theme = shinytheme('spac
     
     # Show a plot of the generated distribution
     mainPanel(
-       plotlyOutput("pyramid", height = '600px', width = '800px'), 
+       plotlyOutput("pyramid", height = '600px'), 
        br(), 
        p('Data source: ', a('Texas Population Projections Program, Office of the Texas State Demographer', 
-                            href = 'http://osd.texas.gov/Data/TPEPP/Projections/')), 
+                            href = 'http://osd.texas.gov/Data/TPEPP/Projections/', target = '_blank')), 
        p('Produced by the ', a('Center for Urban Studies at Texas Christian University', 
-                               href = 'http://urbanstudies.tcu.edu/'))
+                               href = 'http://urbanstudies.tcu.edu/', target = '_blank'))
     )
   ), 
   
   navbarMenu('About the app',
              tabPanel(a('Blog post', href = ' http://urbanstudies.tcu.edu/tx-county-demographics-post/', target = '_blank')), 
-             tabPanel(a('Source code', href = 'http://urbanstudies.tcu.edu/blog/', target = '_blank')), 
+             tabPanel(a('Source code', href = 'https://github.com/walkerke/texas_pyramids', target = '_blank')), 
              tabPanel(a('Population projection methodology', 
                         href = 'http://osd.texas.gov/Data/TPEPP/Projections/Methodology.pdf', target = '_blank'))
   ) 
